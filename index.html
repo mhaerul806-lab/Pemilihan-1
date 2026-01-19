@@ -3,19 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pemilihan Ketua Organisasi Intra Madrasah</title>
+    <title>Pemilihan Ketua Organisasi Ma As'adiyah Lapai</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root {
-            --primary: #1e5799;
-            --secondary: #207cca;
-            --accent: #e74c3c;
-            --success: #2ecc71;
-            --warning: #f39c12;
-            --light: #f5f9fc;
-            --dark: #2c3e50;
-        }
-        
         * {
             margin: 0;
             padding: 0;
@@ -24,13 +14,13 @@
         }
         
         body {
-            background-color: var(--light);
+            background-color: #f5f9ff;
             color: #333;
             line-height: 1.6;
         }
         
         header {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
             color: white;
             padding: 2rem 1rem;
             text-align: center;
@@ -38,32 +28,22 @@
         }
         
         .logo-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 15px;
+            margin-bottom: 1.5rem;
         }
         
         .logo {
-            width: 80px;
-            height: 80px;
-            background-color: white;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: var(--primary);
-            font-size: 2rem;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            font-size: 3.5rem;
+            color: #ffcc00;
+            margin-bottom: 0.5rem;
         }
         
         h1 {
             font-size: 2.5rem;
-            margin-bottom: 10px;
+            margin-bottom: 0.5rem;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
         }
         
-        .tagline {
+        .subtitle {
             font-size: 1.2rem;
             opacity: 0.9;
             max-width: 800px;
@@ -72,546 +52,208 @@
         
         .container {
             max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
         }
         
-        .admin-info {
-            background-color: white;
+        .section {
+            background: white;
             border-radius: 12px;
-            padding: 20px;
-            margin: 20px 0;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
-            border-left: 5px solid var(--accent);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
         }
         
-        .admin-info h3 {
-            color: var(--dark);
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .admin-contact {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
-            margin-top: 15px;
-        }
-        
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 10px;
-            background-color: #f8f9fa;
-            border-radius: 8px;
-        }
-        
-        .contact-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            font-size: 1.2rem;
-        }
-        
-        .whatsapp-icon {
-            background-color: #25D366;
-        }
-        
-        .email-icon {
-            background-color: #EA4335;
-        }
-        
-        .contact-details strong {
-            display: block;
-            color: var(--dark);
-        }
-        
-        .contact-details span {
-            font-size: 0.9rem;
-            color: #555;
-        }
-        
-        .organizations {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 25px;
-            margin: 40px 0;
-        }
-        
-        .org-card {
-            background-color: white;
-            border-radius: 12px;
-            padding: 25px 20px;
-            text-align: center;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
-            transition: transform 0.3s, box-shadow 0.3s;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .org-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background-color: var(--primary);
-            transform: scaleX(0);
-            transition: transform 0.3s;
-        }
-        
-        .org-card.selected {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
-        }
-        
-        .org-card.selected::before {
-            transform: scaleX(1);
-        }
-        
-        .org-card:hover:not(.selected) {
+        .section:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 18px rgba(0, 0, 0, 0.12);
         }
         
-        .org-icon {
-            width: 70px;
-            height: 70px;
-            margin: 0 auto 15px;
-            border-radius: 50%;
+        h2 {
+            color: #1e3c72;
+            border-left: 5px solid #ffcc00;
+            padding-left: 15px;
+            margin-bottom: 1.5rem;
             display: flex;
-            justify-content: center;
             align-items: center;
-            font-size: 2rem;
+        }
+        
+        h2 i {
+            margin-right: 10px;
+            color: #2a5298;
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .timeline-item {
+            display: flex;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        
+        .timeline-date {
+            background: #2a5298;
             color: white;
-        }
-        
-        .osis { background-color: #3498db; }
-        .pmr { background-color: #e74c3c; }
-        .gls { background-color: #2ecc71; }
-        .lds { background-color: #9b59b6; }
-        .sispala { background-color: #e67e22; }
-        
-        .org-card h3 {
-            margin-bottom: 10px;
-            color: var(--dark);
-        }
-        
-        .org-card p {
-            color: #7f8c8d;
-            font-size: 0.95rem;
-        }
-        
-        .form-section {
-            background-color: white;
-            border-radius: 12px;
-            padding: 30px;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
-            margin: 40px 0;
-        }
-        
-        .section-title {
-            color: var(--dark);
-            border-bottom: 3px solid var(--secondary);
-            padding-bottom: 12px;
-            margin-bottom: 30px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .section-title i {
-            color: var(--secondary);
-        }
-        
-        .form-group {
-            margin-bottom: 25px;
-        }
-        
-        .form-row {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-bottom: 20px;
-        }
-        
-        label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: var(--dark);
-        }
-        
-        input, select, textarea {
-            width: 100%;
-            padding: 12px 15px;
-            border: 1px solid #ddd;
+            padding: 0.8rem 1.2rem;
             border-radius: 8px;
-            font-size: 1rem;
-            transition: border-color 0.3s;
-        }
-        
-        input:focus, select:focus, textarea:focus {
-            outline: none;
-            border-color: var(--secondary);
-            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
-        }
-        
-        .radio-group {
-            display: flex;
-            gap: 30px;
-            margin-top: 10px;
-        }
-        
-        .radio-option {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .radio-option input {
-            width: auto;
-        }
-        
-        .photo-preview {
-            width: 150px;
-            height: 180px;
-            border: 2px dashed #ddd;
-            border-radius: 8px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            margin-top: 10px;
-            overflow: hidden;
-            background-color: #f9f9f9;
-        }
-        
-        .photo-preview img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: none;
-        }
-        
-        .photo-preview i {
-            font-size: 2.5rem;
-            color: #aaa;
-            margin-bottom: 10px;
-        }
-        
-        .btn-submit {
-            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
-            color: white;
-            border: none;
-            padding: 15px 40px;
-            font-size: 1.1rem;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-weight: 600;
-            display: block;
-            margin: 40px auto 0;
-        }
-        
-        .btn-submit:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 7px 14px rgba(52, 152, 219, 0.3);
-        }
-        
-        .google-form-info {
-            background-color: #f8f9fa;
-            border-radius: 10px;
-            padding: 25px;
-            margin-top: 30px;
-            border: 1px solid #e1e8ed;
-        }
-        
-        .google-form-info h4 {
-            margin-bottom: 15px;
-            color: var(--dark);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .google-form-info p {
-            margin-bottom: 15px;
-            color: #555;
-        }
-        
-        .btn-google-form {
-            background-color: #4285F4;
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-        
-        .btn-google-form:hover {
-            background-color: #3367D6;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(66, 133, 244, 0.3);
-        }
-        
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .modal-content {
-            background-color: white;
-            border-radius: 12px;
-            padding: 30px;
-            max-width: 500px;
-            width: 90%;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            min-width: 180px;
             text-align: center;
+            font-weight: bold;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
         }
         
-        .modal-content h3 {
-            color: var(--dark);
-            margin-bottom: 15px;
+        .timeline-content {
+            background: #f0f7ff;
+            padding: 1.2rem 1.5rem;
+            border-radius: 8px;
+            margin-left: 1.5rem;
+            flex: 1;
+            border-left: 3px solid #ffcc00;
         }
         
-        .modal-content p {
-            margin-bottom: 20px;
-            color: #555;
+        .timeline-content h3 {
+            color: #1e3c72;
+            margin-bottom: 0.5rem;
         }
         
-        .modal-buttons {
+        .criteria-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .criteria-card {
+            background: #f0f7ff;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-top: 4px solid #2a5298;
+        }
+        
+        .criteria-card h3 {
+            color: #1e3c72;
+            margin-bottom: 0.8rem;
             display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 25px;
+            align-items: center;
+        }
+        
+        .criteria-card i {
+            margin-right: 10px;
+            color: #ffcc00;
         }
         
         .btn {
-            padding: 12px 25px;
-            border-radius: 8px;
+            display: inline-block;
+            background: linear-gradient(to right, #2a5298, #1e3c72);
+            color: white;
+            padding: 0.9rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(42, 82, 152, 0.3);
             border: none;
             cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
         }
         
-        .btn-primary {
-            background-color: var(--secondary);
-            color: white;
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(42, 82, 152, 0.4);
+            background: linear-gradient(to right, #1e3c72, #2a5298);
         }
         
-        .btn-primary:hover {
-            background-color: var(--primary);
+        .btn i {
+            margin-right: 8px;
         }
         
-        .btn-secondary {
-            background-color: #ecf0f1;
-            color: var(--dark);
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 1.5rem;
         }
         
-        .btn-secondary:hover {
-            background-color: #d5dbdb;
-        }
-        
-        .data-preview {
-            background-color: #f8fafc;
-            border-radius: 10px;
-            padding: 25px;
-            margin-top: 30px;
-            border: 1px solid #e1e8ed;
-            display: none;
-        }
-        
-        .data-preview h4 {
-            margin-bottom: 15px;
-            color: var(--dark);
-        }
-        
-        .preview-content {
-            background-color: white;
-            padding: 20px;
+        .contact-card {
+            flex: 1;
+            min-width: 250px;
+            background: #f0f7ff;
+            padding: 1.5rem;
             border-radius: 8px;
-            max-height: 300px;
-            overflow-y: auto;
-            font-family: monospace;
-            white-space: pre-wrap;
-            font-size: 0.9rem;
+            text-align: center;
+        }
+        
+        .contact-card i {
+            font-size: 2rem;
+            color: #2a5298;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-card h3 {
+            color: #1e3c72;
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-card p {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .note {
+            background: #fff8e1;
+            border-left: 4px solid #ffcc00;
+            padding: 1.2rem;
+            margin-top: 2rem;
+            border-radius: 0 8px 8px 0;
+            font-style: italic;
         }
         
         footer {
-            background-color: var(--dark);
-            color: #ecf0f1;
+            background: #1e3c72;
+            color: white;
             text-align: center;
-            padding: 25px;
-            margin-top: 40px;
+            padding: 2rem 1rem;
+            margin-top: 3rem;
         }
         
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 15px;
+        .footer-logo {
+            font-size: 2rem;
+            color: #ffcc00;
+            margin-bottom: 1rem;
         }
         
-        .footer-links a {
-            color: var(--secondary);
-            text-decoration: none;
-        }
-        
-        .footer-links a:hover {
-            text-decoration: underline;
-        }
-        
-        .selected-org {
-            background-color: #e8f4fc;
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 25px;
-            border-left: 5px solid var(--secondary);
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .selected-org i {
-            color: var(--secondary);
-            font-size: 1.2rem;
+        .copyright {
+            opacity: 0.8;
+            margin-top: 1rem;
+            font-size: 0.9rem;
         }
         
         @media (max-width: 768px) {
-            .organizations {
-                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            }
-            
-            .form-row {
-                grid-template-columns: 1fr;
-            }
-            
-            .radio-group {
-                flex-direction: column;
-                gap: 10px;
-            }
-            
             h1 {
                 font-size: 2rem;
             }
             
-            .modal-buttons {
+            .subtitle {
+                font-size: 1rem;
+            }
+            
+            .timeline-item {
                 flex-direction: column;
             }
             
-            .admin-contact {
-                grid-template-columns: 1fr;
+            .timeline-date {
+                margin-bottom: 0.8rem;
+                min-width: auto;
             }
-        }
-        
-        .required {
-            color: var(--accent);
-        }
-        
-        .success-message {
-            background-color: #d4edda;
-            color: #155724;
-            padding: 15px;
-            border-radius: 8px;
-            margin: 20px 0;
-            border-left: 5px solid var(--success);
-            display: none;
-        }
-        
-        .warning-message {
-            background-color: #fff3cd;
-            color: #856404;
-            padding: 15px;
-            border-radius: 8px;
-            margin: 20px 0;
-            border-left: 5px solid var(--warning);
-        }
-        
-        .step-indicator {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 30px;
-        }
-        
-        .step {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            position: relative;
-            flex: 1;
-        }
-        
-        .step:not(:last-child)::after {
-            content: '';
-            position: absolute;
-            top: 20px;
-            left: 60%;
-            width: 80%;
-            height: 2px;
-            background-color: #ddd;
-            z-index: 1;
-        }
-        
-        .step.active:not(:last-child)::after {
-            background-color: var(--secondary);
-        }
-        
-        .step-circle {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: #eee;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-weight: bold;
-            margin-bottom: 10px;
-            z-index: 2;
-            position: relative;
-        }
-        
-        .step.active .step-circle {
-            background-color: var(--secondary);
-            color: white;
-        }
-        
-        .step-label {
-            font-size: 0.9rem;
-            color: #777;
-        }
-        
-        .step.active .step-label {
-            color: var(--secondary);
-            font-weight: 600;
+            
+            .timeline-content {
+                margin-left: 0;
+            }
         }
     </style>
 </head>
@@ -621,648 +263,168 @@
             <div class="logo">
                 <i class="fas fa-vote-yea"></i>
             </div>
-            <div>
-                <h1>Pemilihan Ketua Organisasi Intra Madrasah</h1>
-                <p class="tagline">Daftarkan diri Anda sebagai calon ketua atau wakil ketua organisasi. Data akan dikirim ke Google Form untuk verifikasi admin.</p>
-            </div>
+            <h1>PEMILIHAN KETUA ORGANISASI</h1>
+            <p class="subtitle">Ma As'adiyah Lapai - Tahun 2026</p>
+            <p class="subtitle">"Membangun Organisasi yang Berkualitas dan Berakhlak Mulia"</p>
         </div>
     </header>
     
     <div class="container">
-        <div class="admin-info">
-            <h3><i class="fas fa-user-shield"></i> Kontak Admin Panitia Pemilihan</h3>
-            <p>Untuk pertanyaan atau bantuan teknis, hubungi admin melalui kontak berikut:</p>
+        <section class="section">
+            <h2><i class="fas fa-calendar-alt"></i> Linimasa Pemilihan Ketua Organisasi</h2>
+            <p>Berikut adalah jadwal lengkap proses pemilihan ketua organisasi Ma As'adiyah Lapai yang akan dilaksanakan secara serentak:</p>
             
-            <div class="admin-contact">
-                <div class="contact-item">
-                    <div class="contact-icon whatsapp-icon">
-                        <i class="fab fa-whatsapp"></i>
-                    </div>
-                    <div class="contact-details">
-                        <strong>WhatsApp Admin</strong>
-                        <span>085219363466 (Ketua KPUS)</span>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">Selasa, 20/01/2026</div>
+                    <div class="timeline-content">
+                        <h3>Pengambilan Formulir Calon Kandidat</h3>
+                        <p>Calon ketua dan wakil ketua organisasi dapat mengambil formulir pendaftaran di sekretariat Ma As'adiyah Lapai.</p>
                     </div>
                 </div>
                 
-                <div class="contact-item">
-                    <div class="contact-icon email-icon">
-                        <i class="fas fa-envelope"></i>
-                    </div>
-                    <div class="contact-details">
-                        <strong>Email Admin</strong>
-                        <span>mhaerul806@gmail.com</span>
+                <div class="timeline-item">
+                    <div class="timeline-date">Rabu - Kamis, 22-23/01/2026</div>
+                    <div class="timeline-content">
+                        <h3>Pengembalian Formulir</h3>
+                        <p>Formulir yang telah diisi beserta berkas persyaratan harus dikembalikan ke sekretariat paling lambat Kamis, 23 Januari 2026.</p>
                     </div>
                 </div>
-            </div>
-        </div>
-        
-        <div class="warning-message">
-            <i class="fas fa-exclamation-triangle"></i>
-            <strong>Penting:</strong> Data yang Anda isi akan dikirim melalui Google Form. Pastikan koneksi internet stabil sebelum mengirim data.
-        </div>
-        
-        <div class="step-indicator">
-            <div class="step active" id="step1">
-                <div class="step-circle">1</div>
-                <div class="step-label">Pilih Organisasi</div>
-            </div>
-            <div class="step" id="step2">
-                <div class="step-circle">2</div>
-                <div class="step-label">Isi Data Diri</div>
-            </div>
-            <div class="step" id="step3">
-                <div class="step-circle">3</div>
-                <div class="step-label">Kirim ke Google Form</div>
-            </div>
-        </div>
-        
-        <section class="organizations" id="orgSelection">
-            <h2 class="section-title" style="grid-column: 1/-1;"><i class="fas fa-sitemap"></i> Pilih Organisasi yang Ingin Anda Pimpin</h2>
-            
-            <div class="org-card" data-org="osim">
-                <div class="org-icon osim">
-                    <i class="fas fa-users"></i>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">Senin, 26/01/2026</div>
+                    <div class="timeline-content">
+                        <h3>Pemaparan Visi-Misi</h3>
+                        <p>Setiap kandidat akan memaparkan visi dan misi mereka di hadapan seluruh anggota organisasi.</p>
+                    </div>
                 </div>
-                <h3>OSIM</h3>
-                <p>Organisasi Siswa Intra Madrasah - Organisasi siswa resmi di madrasah</p>
-            </div>
-            
-            <div class="org-card" data-org="pmr">
-                <div class="org-icon pmr">
-                    <i class="fas fa-heartbeat"></i>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">Selasa - Rabu, 27-28/01/2026</div>
+                    <div class="timeline-content">
+                        <h3>Minggu Tenang</h3>
+                        <p>Masa tenang untuk memberikan kesempatan kepada anggota mempertimbangkan pilihan tanpa adanya kampanye aktif.</p>
+                    </div>
                 </div>
-                <h3>PMR (Palang Merah Remaja)</h3>
-                <p>Organisasi yang bergerak di bidang kesehatan dan kemanusiaan</p>
-            </div>
-            
-            <div class="org-card" data-org="gls">
-                <div class="org-icon gls">
-                    <i class="fas fa-book-reader"></i>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">Kamis, 29/01/2026</div>
+                    <div class="timeline-content">
+                        <h3>Pemilihan Serentak & Perhitungan Suara</h3>
+                        <p>Pemungutan suara akan dilaksanakan secara serentak diikuti dengan perhitungan suara secara transparan.</p>
+                    </div>
                 </div>
-                <h3>GLS (Gerakan Literasi Sekolah)</h3>
-                <p>Organisasi yang mempromosikan budaya membaca dan menulis</p>
-            </div>
-            
-            <div class="org-card" data-org="lds">
-                <div class="org-icon lds">
-                    <i class="fas fa-mosque"></i>
-                </div>
-                <h3>LDS (Lembaga Dakwah Sekolah)</h3>
-                <p>Organisasi yang mengembangkan kegiatan keagamaan Islam</p>
-            </div>
-            
-            <div class="org-card" data-org="sispala">
-                <div class="org-icon sispala">
-                    <i class="fas fa-mountain"></i>
-                </div>
-                <h3>SISPALA (Siswa Pecinta Alam)</h3>
-                <p>Organisasi yang peduli terhadap lingkungan dan petualangan alam</p>
             </div>
         </section>
         
-        <section class="form-section">
-            <h2 class="section-title"><i class="fas fa-edit"></i> Form Pendaftaran Calon Ketua/Wakil Organisasi</h2>
+        <section class="section">
+            <h2><i class="fas fa-list-alt"></i> Kriteria Calon Ketua Organisasi</h2>
+            <p>Calon ketua organisasi Ma As'adiyah Lapai harus memenuhi kriteria sebagai berikut:</p>
             
-            <div class="selected-org" id="selectedOrgDisplay">
-                <i class="fas fa-info-circle"></i>
-                <span>Silakan pilih organisasi di atas terlebih dahulu</span>
+            <div class="criteria-list">
+                <div class="criteria-card">
+                    <h3><i class="fas fa-user-graduate"></i> Kriteria Akademik</h3>
+                    <p>Siswa aktif kelas XI (untuk ketua) dan siswa aktif kelas X (untuk wakil ketua) di Ma As'adiyah Lapai.</p>
+                </div>
+                
+                <div class="criteria-card">
+                    <h3><i class="fas fa-heartbeat"></i> Kesehatan</h3>
+                    <p>Sehat jasmani dan rohani, dibuktikan dengan surat keterangan sehat dari dokter.</p>
+                </div>
+                
+                <div class="criteria-card">
+                    <h3><i class="fas fa-user-check"></i> Akhlak & Kepribadian</h3>
+                    <p>Menjadi teladan dalam sikap, perilaku, dan tutur kata bagi seluruh anggota organisasi.</p>
+                </div>
+                
+                <div class="criteria-card">
+                    <h3><i class="fas fa-book-open"></i> Kemampuan Religius</h3>
+                    <p>Mampu membaca Al-Quran dengan baik dan benar sesuai dengan kaidah tajwid.</p>
+                </div>
             </div>
-            
-            <form id="candidateForm">
-                <h3 class="section-title"><i class="fas fa-user-edit"></i> Data Pribadi Calon</h3>
-                
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="fullName">Nama Lengkap <span class="required">*</span></label>
-                        <input type="text" id="fullName" name="fullName" required placeholder="Masukkan nama lengkap">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="nickName">Nama Panggilan <span class="required">*</span></label>
-                        <input type="text" id="nickName" name="nickName" required placeholder="Masukkan nama panggilan">
-                    </div>
-                </div>
-                
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="nisn">NISN <span class="required">*</span></label>
-                        <input type="text" id="nisn" name="nisn" required placeholder="Contoh: 0038123456">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="birthPlace">Tempat Lahir <span class="required">*</span></label>
-                        <input type="text" id="birthPlace" name="birthPlace" required placeholder="Contoh: Jakarta">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="birthDate">Tanggal Lahir <span class="required">*</span></label>
-                        <input type="date" id="birthDate" name="birthDate" required>
-                    </div>
-                </div>
-                
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="class">Kelas <span class="required">*</span></label>
-                        <select id="class" name="class" required>
-                            <option value="">Pilih Kelas</option>
-                            <option value="KELAS X MERDEKA 1">KELAS X MERDEKA 1</option>
-                            <option value="KELAS X MERDEKA 2">KELAS X MERDEKA 2</option>
-                            <option value="KELAS XI MERDEKA 1">KELAS XI MERDEKA 1</option>
-                            <option value="KELAS XI MERDEKA 2">KELAS XI MERDEKA 2</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="phone">Nomor HP/WhatsApp <span class="required">*</span></label>
-                        <input type="tel" id="phone" name="phone" required placeholder="Contoh: 085219363466">
-                    </div>
-                </div>
-                
-                <div class="form-group">
-                    <label for="address">Alamat Lengkap <span class="required">*</span></label>
-                    <textarea id="address" name="address" rows="3" required placeholder="Masukkan alamat lengkap"></textarea>
-                </div>
-                
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="instagram">Akun Instagram <span class="required">*</span></label>
-                        <input type="text" id="instagram" name="instagram" required placeholder="Contoh: @namaakun">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="tiktok">Akun TikTok <span class="required">*</span></label>
-                        <input type="text" id="tiktok" name="tiktok" required placeholder="Contoh: @namaakun">
-                    </div>
-                </div>
-                
-                <div class="form-group">
-                    <label for="experience">Pengalaman Organisasi <span class="required">*</span></label>
-                    <textarea id="experience" name="experience" rows="4" required placeholder="Jelaskan pengalaman organisasi yang pernah diikuti (nama organisasi, jabatan, durasi)"></textarea>
-                </div>
-                
-                <div class="form-group">
-                    <label for="motto">Motto <span class="required">*</span></label>
-                    <input type="text" id="motto" name="motto" required placeholder="Contoh: Melayani dengan hati, mengabdi dengan tulus">
-                </div>
-                
-                <div class="form-group">
-                    <label>Mencalonkan Diri Sebagai <span class="required">*</span></label>
-                    <div class="radio-group">
-                        <div class="radio-option">
-                            <input type="radio" id="positionKetua" name="position" value="ketua" required>
-                            <label for="positionKetua">Ketua Organisasi</label>
-                        </div>
-                        <div class="radio-option">
-                            <input type="radio" id="positionWakil" name="position" value="wakil" required>
-                            <label for="positionWakil">Wakil Ketua Organisasi</label>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="form-group">
-                    <label for="reason">Alasan Mencalonkan Diri <span class="required">*</span></label>
-                    <textarea id="reason" name="reason" rows="5" required placeholder="Jelaskan alasan Anda mencalonkan diri sebagai ketua/wakil organisasi"></textarea>
-                </div>
-                
-                <div class="form-group">
-                    <label for="photo">Pas Foto (Format: JPG/PNG, Maks: 2MB) <span class="required">*</span></label>
-                    <input type="file" id="photo" name="photo" accept="image/*" required>
-                    <div class="photo-preview" id="photoPreview">
-                        <i class="fas fa-user-circle"></i>
-                        <span>Pratinjau foto akan muncul di sini</span>
-                        <img id="previewImage" src="" alt="Pratinjau Foto">
-                    </div>
-                </div>
-                
-                <div class="data-preview" id="dataPreview">
-                    <h4><i class="fas fa-eye"></i> Pratinjau Data yang Akan Dikirim</h4>
-                    <div class="preview-content" id="previewContent">
-                        Data akan muncul di sini...
-                    </div>
-                </div>
-                
-                <button type="button" class="btn btn-secondary" id="previewBtn" style="margin-top: 20px;">
-                    <i class="fas fa-eye"></i> Pratinjau Data
-                </button>
-                
-                <div class="google-form-info">
-                    <h4><i class="fab fa-google"></i> Pengiriman Data ke Google Form</h4>
-                    <p>Data yang telah Anda isi akan dikirim melalui Google Form ke admin. Pastikan data sudah benar sebelum dikirim.</p>
-                    <p>Setelah mengklik tombol di bawah, Anda akan diarahkan ke Google Form untuk konfirmasi akhir.</p>
-                    
-                    <button type="submit" class="btn-google-form">
-                        <i class="fab fa-google"></i> Lanjutkan ke Google Form
-                    </button>
-                </div>
-            </form>
         </section>
-    </div>
-    
-    <div class="modal" id="successModal">
-        <div class="modal-content">
-            <div style="font-size: 4rem; color: #2ecc71; margin-bottom: 20px;">
-                <i class="fas fa-check-circle"></i>
-            </div>
-            <h3>Data Siap Dikirim!</h3>
-            <p>Data calon ketua/wakil organisasi telah berhasil diverifikasi.</p>
-            <p>Klik tombol di bawah untuk melanjutkan ke Google Form dan mengirim data ke admin.</p>
+        
+        <section class="section">
+            <h2><i class="fas fa-user-plus"></i> Pendaftaran Calon Ketua Organisasi</h2>
+            <p>Bagi siswa yang memenuhi kriteria dan berminat menjadi calon ketua organisasi, dapat mendaftar melalui link berikut:</p>
             
-            <div style="margin-top: 25px; padding: 15px; background-color: #f8f9fa; border-radius: 8px;">
-                <p><strong>Langkah Selanjutnya:</strong></p>
-                <ol style="text-align: left; margin-left: 20px; margin-top: 10px;">
-                    <li>Anda akan diarahkan ke Google Form</li>
-                    <li>Isi ulang data yang sama di Google Form</li>
-                    <li>Submit form untuk mengirim data ke admin</li>
-                    <li>Tunggu konfirmasi dari admin via WhatsApp/Email</li>
-                </ol>
+            <a href="https://forms.gle/pbidkFwrRtz3DomH7" target="_blank" class="btn">
+                <i class="fas fa-external-link-alt"></i> Daftar Sebagai Calon Ketua
+            </a>
+            
+            <div class="note">
+                <p><strong>Catatan:</strong> Pastikan semua persyaratan telah dipenuhi sebelum melakukan pendaftaran. Formulir pendaftaran yang tidak lengkap tidak akan diproses.</p>
+            </div>
+        </section>
+        
+        <section class="section">
+            <h2><i class="fas fa-address-book"></i> Kontak Panitia KPUS</h2>
+            <p>Jika ada pertanyaan seputar pemilihan ketua organisasi, dapat menghubungi panitia KPUS (Komisi Pemilihan Umum Siswa):</p>
+            
+            <div class="contact-info">
+                <div class="contact-card">
+                    <i class="fas fa-user-tie"></i>
+                    <h3>Ketua KPUS</h3>
+                    <p>Muh. Harus</p>
+                    <p><i class="fas fa-phone"></i> 085219363466</p>
+                </div>
+                
+                <div class="contact-card">
+                    <i class="fas fa-user"></i>
+                    <h3>Anggota KPUS</h3>
+                    <p>K. M. Miftahul Khair S. A.g</p>
+                    <p><i class="fas fa-phone"></i> 085333339078</p>
+                </div>
             </div>
             
-            <div class="modal-buttons">
-                <button class="btn btn-secondary" id="editDataBtn">
-                    <i class="fas fa-edit"></i> Edit Data
-                </button>
-                <a href="#" class="btn btn-primary" id="goToGoogleFormBtn" target="_blank">
-                    <i class="fab fa-google"></i> Lanjutkan ke Google Form
-                </a>
+            <div class="note">
+                <p><strong>Informasi:</strong> Panitia KPUS siap melayani pertanyaan seputar pemilihan pada jam kerja (08.00 - 16.00 WITA).</p>
             </div>
-        </div>
+        </section>
     </div>
     
     <footer>
-        <p>© 2026 Panitia Pemilihan Ketua Organisasi Intra Madrasah. Semua hak dilindungi.</p>
-        <div class="footer-links">
-            <a href="#"><i class="fas fa-info-circle"></i> Tentang Pemilihan</a>
-            <a href="#"><i class="fas fa-question-circle"></i> Bantuan</a>
-            <a href="#"><i class="fas fa-calendar-alt"></i> Timeline Pemilihan</a>
+        <div class="footer-logo">
+            <i class="fas fa-university"></i>
         </div>
-        <p style="margin-top: 20px; font-size: 0.9rem;">Madrasah Aliyah Negeri - Program Merdeka Belajar</p>
+        <h3>Ma As'adiyah Lapai</h3>
+        <p>Organisasi Siswa yang Berakhlak Mulia dan Berkualitas</p>
+        <p class="copyright">© 2026 Panitia Pemilihan Ketua Organisasi Ma As'adiyah Lapai. Semua Hak Dilindungi.</p>
     </footer>
-    
-    <script>
-        // Data organisasi
-        const orgData = {
-            osis: {
-                name: 'OSIS (Organisasi Siswa Intra Sekolah)',
-                desc: 'Organisasi siswa resmi di sekolah',
-                color: '#3498db',
-                googleFormId: '1FAIpQLSf...' // ID Google Form untuk OSIS
-            },
-            pmr: {
-                name: 'PMR (Palang Merah Remaja)',
-                desc: 'Organisasi yang bergerak di bidang kesehatan dan kemanusiaan',
-                color: '#e74c3c',
-                googleFormId: '1FAIpQLSf...' // ID Google Form untuk PMR
-            },
-            gls: {
-                name: 'GLS (Gerakan Literasi Sekolah)',
-                desc: 'Organisasi yang mempromosikan budaya membaca dan menulis',
-                color: '#2ecc71',
-                googleFormId: '1FAIpQLSf...' // ID Google Form untuk GLS
-            },
-            lds: {
-                name: 'LDS (Lembaga Dakwah Sekolah)',
-                desc: 'Organisasi yang mengembangkan kegiatan keagamaan Islam',
-                color: '#9b59b6',
-                googleFormId: '1FAIpQLSf...' // ID Google Form untuk LDS
-            },
-            sispala: {
-                name: 'SISPALA (Siswa Pecinta Alam)',
-                desc: 'Organisasi yang peduli terhadap lingkungan dan petualangan alam',
-                color: '#e67e22',
-                googleFormId: '1FAIpQLSf...' // ID Google Form untuk SISPALA
-            }
-        };
-        
-        // Variabel untuk menyimpan organisasi yang dipilih
-        let selectedOrg = null;
-        
-        // URL Google Form - GANTI DENGAN URL GOOGLE FORM ANDA SENDIRI
-        // Cara membuat Google Form: https://docs.google.com/forms/
-        // Setelah membuat form, dapatkan URL form dan ganti variabel di bawah
-        const GOOGLE_FORM_URL = "https://forms.gle/pbidkFwrRtz3DomH7
 
-        // Fungsi untuk memilih organisasi
-        document.querySelectorAll('.org-card').forEach(card => {
-            card.addEventListener('click', function() {
-                // Hapus class selected dari semua kartu
-                document.querySelectorAll('.org-card').forEach(c => {
-                    c.classList.remove('selected');
+    <script>
+        // Animasi untuk timeline saat di-scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateX(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            timelineItems.forEach((item, index) => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateX(-20px)';
+                item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                item.style.transitionDelay = (index * 0.1) + 's';
+                observer.observe(item);
+            });
+            
+            // Efek hover untuk tombol
+            const buttons = document.querySelectorAll('.btn');
+            buttons.forEach(button => {
+                button.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-3px)';
                 });
                 
-                // Tambah class selected ke kartu yang diklik
-                this.classList.add('selected');
-                
-                // Simpan organisasi yang dipilih
-                selectedOrg = this.getAttribute('data-org');
-                
-                // Tampilkan organisasi yang dipilih
-                const orgInfo = orgData[selectedOrg];
-                document.getElementById('selectedOrgDisplay').innerHTML = `
-                    <i class="fas fa-check-circle"></i>
-                    <span>Anda memilih: <strong>${orgInfo.name}</strong> - ${orgInfo.desc}</span>
-                `;
-                document.getElementById('selectedOrgDisplay').style.borderLeftColor = orgInfo.color;
-                
-                // Update step indicator
-                updateStepIndicator(2);
+                button.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
             });
-        });
-        
-        // Fungsi untuk update step indicator
-        function updateStepIndicator(stepNumber) {
-            // Reset semua steps
-            document.querySelectorAll('.step').forEach(step => {
-                step.classList.remove('active');
-            });
-            
-            // Aktifkan steps sesuai nomor
-            for (let i = 1; i <= stepNumber; i++) {
-                document.getElementById(`step${i}`).classList.add('active');
-            }
-        }
-        
-        // Fungsi untuk pratinjau foto
-        document.getElementById('photo').addEventListener('change', function(event) {
-            const file = event.target.files[0];
-            const preview = document.getElementById('previewImage');
-            const previewContainer = document.getElementById('photoPreview');
-            
-            if (file) {
-                // Validasi ukuran file (maks 2MB)
-                if (file.size > 2 * 1024 * 1024) {
-                    alert('Ukuran file terlalu besar! Maksimal 2MB.');
-                    this.value = '';
-                    return;
-                }
-                
-                // Validasi tipe file
-                const validTypes = ['image/jpeg', 'image/jpg', 'image/png'];
-                if (!validTypes.includes(file.type)) {
-                    alert('Format file tidak didukung! Hanya JPG, JPEG, dan PNG yang diperbolehkan.');
-                    this.value = '';
-                    return;
-                }
-                
-                const reader = new FileReader();
-                
-                reader.onload = function(e) {
-                    preview.src = e.target.result;
-                    preview.style.display = 'block';
-                    previewContainer.querySelector('i').style.display = 'none';
-                    previewContainer.querySelector('span').style.display = 'none';
-                }
-                
-                reader.readAsDataURL(file);
-            } else {
-                preview.src = '';
-                preview.style.display = 'none';
-                previewContainer.querySelector('i').style.display = 'block';
-                previewContainer.querySelector('span').style.display = 'block';
-            }
-        });
-        
-        // Set tanggal minimum dan maksimum untuk input tanggal lahir
-        const today = new Date();
-        const minDate = new Date();
-        minDate.setFullYear(today.getFullYear() - 20);
-        const maxDate = new Date();
-        maxDate.setFullYear(today.getFullYear() - 15);
-        
-        document.getElementById('birthDate').min = minDate.toISOString().split('T')[0];
-        document.getElementById('birthDate').max = maxDate.toISOString().split('T')[0];
-        
-        // Set default tanggal lahir (17 tahun yang lalu)
-        const defaultDate = new Date();
-        defaultDate.setFullYear(today.getFullYear() - 17);
-        document.getElementById('birthDate').value = defaultDate.toISOString().split('T')[0];
-        
-        // Fungsi untuk pratinjau data
-        document.getElementById('previewBtn').addEventListener('click', function() {
-            if (!validateForm(true)) return;
-            
-            const formData = getFormData();
-            const previewText = formatDataForPreview(formData);
-            
-            document.getElementById('previewContent').textContent = previewText;
-            document.getElementById('dataPreview').style.display = 'block';
-            
-            // Scroll ke pratinjau
-            document.getElementById('dataPreview').scrollIntoView({ behavior: 'smooth' });
-        });
-        
-        // Fungsi untuk validasi form
-        function validateForm(isPreview = false) {
-            // Validasi: pastikan organisasi sudah dipilih
-            if (!selectedOrg) {
-                alert('Silakan pilih organisasi terlebih dahulu!');
-                document.getElementById('orgSelection').scrollIntoView({ behavior: 'smooth' });
-                return false;
-            }
-            
-            // Validasi form
-            const requiredFields = ['fullName', 'nickName', 'nisn', 'birthPlace', 'birthDate', 'class', 'phone', 'address', 'instagram', 'tiktok', 'experience', 'motto', 'reason'];
-            let isValid = true;
-            let firstInvalidField = null;
-            
-            requiredFields.forEach(fieldId => {
-                const field = document.getElementById(fieldId);
-                if (!field.value.trim()) {
-                    isValid = false;
-                    if (!firstInvalidField) firstInvalidField = field;
-                    field.style.borderColor = '#e74c3c';
-                } else {
-                    field.style.borderColor = '#ddd';
-                }
-            });
-            
-            // Validasi radio button position
-            const positionSelected = document.querySelector('input[name="position"]:checked');
-            if (!positionSelected) {
-                isValid = false;
-                alert('Silakan pilih posisi yang diinginkan (Ketua atau Wakil Ketua)');
-            }
-            
-            // Validasi file foto
-            const photoFile = document.getElementById('photo').files[0];
-            if (!photoFile) {
-                isValid = false;
-                if (!isPreview) alert('Silakan unggah pas foto terlebih dahulu');
-                document.getElementById('photo').style.borderColor = '#e74c3c';
-            } else {
-                document.getElementById('photo').style.borderColor = '#ddd';
-            }
-            
-            if (!isValid && !isPreview) {
-                alert('Harap lengkapi semua field yang wajib diisi!');
-                if (firstInvalidField) {
-                    firstInvalidField.focus();
-                }
-            }
-            
-            return isValid;
-        }
-        
-        // Fungsi untuk mendapatkan data form
-        function getFormData() {
-            const position = document.querySelector('input[name="position"]:checked').value;
-            const photoFile = document.getElementById('photo').files[0];
-            
-            // Format tanggal lahir
-            const birthDate = new Date(document.getElementById('birthDate').value);
-            const formattedDate = birthDate.toLocaleDateString('id-ID', {
-                day: 'numeric',
-                month: 'long',
-                year: 'numeric'
-            });
-            
-            return {
-                organization: orgData[selectedOrg].name,
-                fullName: document.getElementById('fullName').value,
-                nickName: document.getElementById('nickName').value,
-                nisn: document.getElementById('nisn').value,
-                birthPlace: document.getElementById('birthPlace').value,
-                birthDate: formattedDate,
-                class: document.getElementById('class').value,
-                address: document.getElementById('address').value,
-                phone: document.getElementById('phone').value,
-                instagram: document.getElementById('instagram').value,
-                tiktok: document.getElementById('tiktok').value,
-                experience: document.getElementById('experience').value,
-                motto: document.getElementById('motto').value,
-                position: position === 'ketua' ? 'Ketua Organisasi' : 'Wakil Ketua Organisasi',
-                reason: document.getElementById('reason').value,
-                photo: photoFile ? photoFile.name : 'Tidak ada foto'
-            };
-        }
-        
-        // Fungsi untuk format data pratinjau
-        function formatDataForPreview(data) {
-            return `DATA CALON KETUA/WAKIL ORGANISASI
-========================================
-ORGANISASI: ${data.organization}
-POSISI: ${data.position}
-
-DATA PRIBADI:
-- Nama Lengkap: ${data.fullName}
-- Nama Panggilan: ${data.nickName}
-- NISN: ${data.nisn}
-- Tempat/Tanggal Lahir: ${data.birthPlace}, ${data.birthDate}
-- Kelas: ${data.class}
-- Alamat: ${data.address}
-- No. HP/WhatsApp: ${data.phone}
-
-MEDIA SOSIAL:
-- Instagram: ${data.instagram}
-- TikTok: ${data.tiktok}
-
-PENGALAMAN ORGANISASI:
-${data.experience}
-
-MOTTO HIDUP: "${data.motto}"
-
-ALASAN MENCALONKAN DIRI:
-${data.reason}
-
-FOTO: ${data.photo}
-
-========================================
-Data ini akan dikirim ke Google Form untuk verifikasi admin.`;
-        }
-        
-        // Fungsi untuk generate URL Google Form dengan data pre-filled
-        function generateGoogleFormUrl(formData) {
-            // Base https://forms.gle/pbidkFwrRtz3DomH7 
-            
-            // Jika ingin pre-fill data di Google Form, tambahkan parameter URL
-            // Contoh: &entry.1234567890=value
-            // Anda perlu menyesuaikan entry ID sesuai dengan Google Form Anda
-            
-            // Untuk saat ini, kita hanya mengarahkan ke Google Form kosong
-            // Karena pre-fill membutuhkan konfigurasi khusus di Google Form
-            return baseUrl;
-        }
-        
-        // Tangani pengiriman form
-        document.getElementById('candidateForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            
-            // Validasi form
-            if (!validateForm()) return;
-            
-            // Update step indicator
-            updateStepIndicator(3);
-            
-            // Tampilkan modal sukses
-            const formData = getFormData();
-            
-            // Generate URL Google Form
-            const googleFormUrl = generateGoogleFormUrl(formData);
-            
-            // Setel tautan Google Form di modal
-            document.getElementById('goToGoogleFormBtn').href = googleFormUrl;
-            
-            // Tampilkan modal
-            document.getElementById('successModal').style.display = 'flex';
-        });
-        
-        // Tangani tombol di modal sukses
-        document.getElementById('editDataBtn').addEventListener('click', function() {
-            document.getElementById('successModal').style.display = 'none';
-            updateStepIndicator(2);
-        });
-        
-        // Reset form setelah pengiriman
-        document.getElementById('goToGoogleFormBtn').addEventListener('click', function() {
-            // Tunggu sebentar sebelum reset form
-            setTimeout(function() {
-                resetForm();
-                document.getElementById('successModal').style.display = 'none';
-            }, 1000);
-        });
-        
-        // Fungsi reset form
-        function resetForm() {
-            document.getElementById('candidateForm').reset();
-            document.getElementById('selectedOrgDisplay').innerHTML = `
-                <i class="fas fa-info-circle"></i>
-                <span>Silakan pilih organisasi di atas terlebih dahulu</span>
-            `;
-            document.getElementById('selectedOrgDisplay').style.borderLeftColor = '#3498db';
-            
-            // Reset pilihan organisasi
-            document.querySelectorAll('.org-card').forEach(c => {
-                c.classList.remove('selected');
-            });
-            selectedOrg = null;
-            
-            // Reset pratinjau foto
-            document.getElementById('photoPreview').querySelector('i').style.display = 'block';
-            document.getElementById('photoPreview').querySelector('span').style.display = 'block';
-            document.getElementById('previewImage').style.display = 'none';
-            
-            // Sembunyikan pratinjau data
-            document.getElementById('dataPreview').style.display = 'none';
-            
-            // Reset step indicator
-            updateStepIndicator(1);
-            
-            // Reset tanggal lahir ke default
-            const today = new Date();
-            const defaultDate = new Date();
-            defaultDate.setFullYear(today.getFullYear() - 17);
-            document.getElementById('birthDate').value = defaultDate.toISOString().split('T')[0];
-        }
-        
-        // Inisialisasi step indicator
-        updateStepIndicator(1);
-        
-        // Tambahkan placeholder untuk nomor HP dengan format Indonesia
-        document.getElementById('phone').addEventListener('input', function(e) {
-            let value = e.target.value.replace(/\D/g, '');
-            if (value.startsWith('0')) {
-                value = '62' + value.substring(1);
-            }
-            e.target.value = value;
         });
     </script>
 </body>
