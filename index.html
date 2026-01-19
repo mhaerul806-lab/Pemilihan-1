@@ -679,12 +679,12 @@
         <section class="organizations" id="orgSelection">
             <h2 class="section-title" style="grid-column: 1/-1;"><i class="fas fa-sitemap"></i> Pilih Organisasi yang Ingin Anda Pimpin</h2>
             
-            <div class="org-card" data-org="osis">
-                <div class="org-icon osis">
+            <div class="org-card" data-org="osim">
+                <div class="org-icon osim">
                     <i class="fas fa-users"></i>
                 </div>
-                <h3>OSIS</h3>
-                <p>Organisasi Siswa Intra Sekolah - Organisasi siswa resmi di sekolah</p>
+                <h3>OSIM</h3>
+                <p>Organisasi Siswa Intra Madrasah - Organisasi siswa resmi di madrasah</p>
             </div>
             
             <div class="org-card" data-org="pmr">
@@ -939,8 +939,8 @@
         // URL Google Form - GANTI DENGAN URL GOOGLE FORM ANDA SENDIRI
         // Cara membuat Google Form: https://docs.google.com/forms/
         // Setelah membuat form, dapatkan URL form dan ganti variabel di bawah
-        const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSfYOUR_FORM_ID_HERE/viewform?usp=pp_url";
-        
+        const GOOGLE_FORM_URL = "https://forms.gle/pbidkFwrRtz3DomH7
+
         // Fungsi untuk memilih organisasi
         document.querySelectorAll('.org-card').forEach(card => {
             card.addEventListener('click', function() {
@@ -1171,7 +1171,7 @@ Data ini akan dikirim ke Google Form untuk verifikasi admin.`;
         
         // Fungsi untuk generate URL Google Form dengan data pre-filled
         function generateGoogleFormUrl(formData) {
-            // Base https://forms.gle/pbidkFwrRtz3DomH7 ;
+            // Base https://forms.gle/pbidkFwrRtz3DomH7 
             
             // Jika ingin pre-fill data di Google Form, tambahkan parameter URL
             // Contoh: &entry.1234567890=value
