@@ -11,6 +11,7 @@
             --secondary: #207cca;
             --accent: #e74c3c;
             --success: #2ecc71;
+            --warning: #f39c12;
             --light: #f5f9fc;
             --dark: #2c3e50;
         }
@@ -92,8 +93,48 @@
             gap: 10px;
         }
         
-        .admin-info p {
-            margin-bottom: 8px;
+        .admin-contact {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+        
+        .whatsapp-icon {
+            background-color: #25D366;
+        }
+        
+        .email-icon {
+            background-color: #EA4335;
+        }
+        
+        .contact-details strong {
+            display: block;
+            color: var(--dark);
+        }
+        
+        .contact-details span {
+            font-size: 0.9rem;
             color: #555;
         }
         
@@ -112,12 +153,29 @@
             box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
             transition: transform 0.3s, box-shadow 0.3s;
             cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .org-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background-color: var(--primary);
+            transform: scaleX(0);
+            transition: transform 0.3s;
         }
         
         .org-card.selected {
             transform: translateY(-8px);
             box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
-            border: 3px solid var(--secondary);
+        }
+        
+        .org-card.selected::before {
+            transform: scaleX(1);
         }
         
         .org-card:hover:not(.selected) {
@@ -137,6 +195,7 @@
             color: white;
         }
         
+        .osis { background-color: #3498db; }
         .pmr { background-color: #e74c3c; }
         .gls { background-color: #2ecc71; }
         .lds { background-color: #9b59b6; }
@@ -269,74 +328,46 @@
             box-shadow: 0 7px 14px rgba(52, 152, 219, 0.3);
         }
         
-        .send-method {
-            background-color: #f8fafc;
+        .google-form-info {
+            background-color: #f8f9fa;
             border-radius: 10px;
             padding: 25px;
             margin-top: 30px;
             border: 1px solid #e1e8ed;
         }
         
-        .send-method h4 {
-            margin-bottom: 20px;
+        .google-form-info h4 {
+            margin-bottom: 15px;
             color: var(--dark);
             display: flex;
             align-items: center;
             gap: 10px;
         }
         
-        .method-options {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
+        .google-form-info p {
+            margin-bottom: 15px;
+            color: #555;
         }
         
-        .method-option {
-            flex: 1;
-            min-width: 200px;
-        }
-        
-        .method-option label {
-            display: flex;
+        .btn-google-form {
+            background-color: #4285F4;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            display: inline-flex;
             align-items: center;
             gap: 10px;
-            padding: 15px;
-            background-color: white;
-            border-radius: 8px;
-            border: 2px solid #e1e8ed;
-            cursor: pointer;
+            text-decoration: none;
             transition: all 0.3s;
         }
         
-        .method-option label:hover {
-            border-color: var(--secondary);
-        }
-        
-        .method-option input:checked + label {
-            border-color: var(--secondary);
-            background-color: #e8f4fc;
-        }
-        
-        .method-option input {
-            display: none;
-        }
-        
-        .method-icon {
-            font-size: 1.5rem;
-            color: var(--secondary);
-        }
-        
-        .method-details {
-            margin-top: 15px;
-            padding: 15px;
-            background-color: white;
-            border-radius: 8px;
-            border: 1px solid #e1e8ed;
-            display: none;
-        }
-        
-        .method-details.active {
-            display: block;
+        .btn-google-form:hover {
+            background-color: #3367D6;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(66, 133, 244, 0.3);
         }
         
         .modal {
@@ -407,35 +438,6 @@
         
         .btn-secondary:hover {
             background-color: #d5dbdb;
-        }
-        
-        .whatsapp-link, .email-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 10px 20px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            margin-top: 15px;
-        }
-        
-        .whatsapp-link {
-            background-color: #25D366;
-            color: white;
-        }
-        
-        .whatsapp-link:hover {
-            background-color: #128C7E;
-        }
-        
-        .email-link {
-            background-color: #EA4335;
-            color: white;
-        }
-        
-        .email-link:hover {
-            background-color: #D14836;
         }
         
         .data-preview {
@@ -518,16 +520,16 @@
                 gap: 10px;
             }
             
-            .method-options {
-                flex-direction: column;
-            }
-            
             h1 {
                 font-size: 2rem;
             }
             
             .modal-buttons {
                 flex-direction: column;
+            }
+            
+            .admin-contact {
+                grid-template-columns: 1fr;
             }
         }
         
@@ -544,6 +546,73 @@
             border-left: 5px solid var(--success);
             display: none;
         }
+        
+        .warning-message {
+            background-color: #fff3cd;
+            color: #856404;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 5px solid var(--warning);
+        }
+        
+        .step-indicator {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+        
+        .step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            flex: 1;
+        }
+        
+        .step:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 60%;
+            width: 80%;
+            height: 2px;
+            background-color: #ddd;
+            z-index: 1;
+        }
+        
+        .step.active:not(:last-child)::after {
+            background-color: var(--secondary);
+        }
+        
+        .step-circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #eee;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            margin-bottom: 10px;
+            z-index: 2;
+            position: relative;
+        }
+        
+        .step.active .step-circle {
+            background-color: var(--secondary);
+            color: white;
+        }
+        
+        .step-label {
+            font-size: 0.9rem;
+            color: #777;
+        }
+        
+        .step.active .step-label {
+            color: var(--secondary);
+            font-weight: 600;
+        }
     </style>
 </head>
 <body>
@@ -554,22 +623,69 @@
             </div>
             <div>
                 <h1>Pemilihan Ketua Organisasi Intra Madrasah</h1>
-                <p class="tagline">Daftarkan diri Anda sebagai calon ketua atau wakil ketua organisasi. Data akan dikirim ke admin untuk verifikasi.</p>
+                <p class="tagline">Daftarkan diri Anda sebagai calon ketua atau wakil ketua organisasi. Data akan dikirim ke Google Form untuk verifikasi admin.</p>
             </div>
         </div>
     </header>
     
     <div class="container">
         <div class="admin-info">
-            <h3><i class="fas fa-user-shield"></i> Informasi Admin</h3>
-            <p><strong>Admin Pemilihan:</strong> Panitia Pemilihan Organisasi Madrasah</p>
-            <p><strong>Email Admin:</strong> admin.pemilihan@madrasah.sch.id</p>
-            <p><strong>WhatsApp Admin:</strong> +62 812-3456-7890</p>
-            <p>Setelah mengisi formulir, data Anda akan diverifikasi oleh admin sebelum ditampilkan sebagai calon resmi.</p>
+            <h3><i class="fas fa-user-shield"></i> Kontak Admin Panitia Pemilihan</h3>
+            <p>Untuk pertanyaan atau bantuan teknis, hubungi admin melalui kontak berikut:</p>
+            
+            <div class="admin-contact">
+                <div class="contact-item">
+                    <div class="contact-icon whatsapp-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <div class="contact-details">
+                        <strong>WhatsApp Admin</strong>
+                        <span>085219363466 (Ketua KPUS)</span>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon email-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-details">
+                        <strong>Email Admin</strong>
+                        <span>mhaerul806@gmail.com</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="warning-message">
+            <i class="fas fa-exclamation-triangle"></i>
+            <strong>Penting:</strong> Data yang Anda isi akan dikirim melalui Google Form. Pastikan koneksi internet stabil sebelum mengirim data.
+        </div>
+        
+        <div class="step-indicator">
+            <div class="step active" id="step1">
+                <div class="step-circle">1</div>
+                <div class="step-label">Pilih Organisasi</div>
+            </div>
+            <div class="step" id="step2">
+                <div class="step-circle">2</div>
+                <div class="step-label">Isi Data Diri</div>
+            </div>
+            <div class="step" id="step3">
+                <div class="step-circle">3</div>
+                <div class="step-label">Kirim ke Google Form</div>
+            </div>
         </div>
         
         <section class="organizations" id="orgSelection">
             <h2 class="section-title" style="grid-column: 1/-1;"><i class="fas fa-sitemap"></i> Pilih Organisasi yang Ingin Anda Pimpin</h2>
+            
+            <div class="org-card" data-org="osis">
+                <div class="org-icon osis">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3>OSIS</h3>
+                <p>Organisasi Siswa Intra Sekolah - Organisasi siswa resmi di sekolah</p>
+            </div>
             
             <div class="org-card" data-org="pmr">
                 <div class="org-icon pmr">
@@ -649,24 +765,16 @@
                         <label for="class">Kelas <span class="required">*</span></label>
                         <select id="class" name="class" required>
                             <option value="">Pilih Kelas</option>
-                            <option value="X IPA 1">X IPA 1</option>
-                            <option value="X IPA 2">X IPA 2</option>
-                            <option value="X IPS 1">X IPS 1</option>
-                            <option value="X IPS 2">X IPS 2</option>
-                            <option value="XI IPA 1">XI IPA 1</option>
-                            <option value="XI IPA 2">XI IPA 2</option>
-                            <option value="XI IPS 1">XI IPS 1</option>
-                            <option value="XI IPS 2">XI IPS 2</option>
-                            <option value="XII IPA 1">XII IPA 1</option>
-                            <option value="XII IPA 2">XII IPA 2</option>
-                            <option value="XII IPS 1">XII IPS 1</option>
-                            <option value="XII IPS 2">XII IPS 2</option>
+                            <option value="KELAS X MERDEKA 1">KELAS X MERDEKA 1</option>
+                            <option value="KELAS X MERDEKA 2">KELAS X MERDEKA 2</option>
+                            <option value="KELAS XI MERDEKA 1">KELAS XI MERDEKA 1</option>
+                            <option value="KELAS XI MERDEKA 2">KELAS XI MERDEKA 2</option>
                         </select>
                     </div>
                     
                     <div class="form-group">
                         <label for="phone">Nomor HP/WhatsApp <span class="required">*</span></label>
-                        <input type="tel" id="phone" name="phone" required placeholder="Contoh: 081234567890">
+                        <input type="tel" id="phone" name="phone" required placeholder="Contoh: 085219363466">
                     </div>
                 </div>
                 
@@ -677,18 +785,13 @@
                 
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="instagram">Akun Instagram</label>
-                        <input type="text" id="instagram" name="instagram" placeholder="Contoh: @namaakun">
+                        <label for="instagram">Akun Instagram <span class="required">*</span></label>
+                        <input type="text" id="instagram" name="instagram" required placeholder="Contoh: @namaakun">
                     </div>
                     
                     <div class="form-group">
-                        <label for="twitter">Akun Twitter</label>
-                        <input type="text" id="twitter" name="twitter" placeholder="Contoh: @namaakun">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="tiktok">Akun TikTok</label>
-                        <input type="text" id="tiktok" name="tiktok" placeholder="Contoh: @namaakun">
+                        <label for="tiktok">Akun TikTok <span class="required">*</span></label>
+                        <input type="text" id="tiktok" name="tiktok" required placeholder="Contoh: @namaakun">
                     </div>
                 </div>
                 
@@ -698,7 +801,7 @@
                 </div>
                 
                 <div class="form-group">
-                    <label for="motto">Motto Hidup <span class="required">*</span></label>
+                    <label for="motto">Motto <span class="required">*</span></label>
                     <input type="text" id="motto" name="motto" required placeholder="Contoh: Melayani dengan hati, mengabdi dengan tulus">
                 </div>
                 
@@ -731,48 +834,6 @@
                     </div>
                 </div>
                 
-                <div class="send-method">
-                    <h4><i class="fas fa-paper-plane"></i> Metode Pengiriman Data ke Admin</h4>
-                    <div class="method-options">
-                        <div class="method-option">
-                            <input type="radio" id="methodWhatsApp" name="sendMethod" value="whatsapp" checked>
-                            <label for="methodWhatsApp">
-                                <span class="method-icon"><i class="fab fa-whatsapp"></i></span>
-                                <span>Kirim via WhatsApp</span>
-                            </label>
-                        </div>
-                        <div class="method-option">
-                            <input type="radio" id="methodEmail" name="sendMethod" value="email">
-                            <label for="methodEmail">
-                                <span class="method-icon"><i class="fas fa-envelope"></i></span>
-                                <span>Kirim via Email</span>
-                            </label>
-                        </div>
-                        <div class="method-option">
-                            <input type="radio" id="methodBoth" name="sendMethod" value="both">
-                            <label for="methodBoth">
-                                <span class="method-icon"><i class="fas fa-share-alt"></i></span>
-                                <span>Kirim via Keduanya</span>
-                            </label>
-                        </div>
-                    </div>
-                    
-                    <div class="method-details" id="whatsappDetails">
-                        <p><strong>Data akan dikirim ke WhatsApp Admin:</strong> +62 812-3456-7890</p>
-                        <p>Pastikan nomor WhatsApp Anda aktif untuk konfirmasi dari admin.</p>
-                    </div>
-                    
-                    <div class="method-details" id="emailDetails">
-                        <p><strong>Data akan dikirim ke Email Admin:</strong> admin.pemilihan@madrasah.sch.id</p>
-                        <p>Anda akan menerima email konfirmasi setelah data diterima.</p>
-                    </div>
-                    
-                    <div class="method-details" id="bothDetails">
-                        <p><strong>Data akan dikirim ke WhatsApp dan Email Admin.</strong></p>
-                        <p>Anda akan menerima konfirmasi melalui WhatsApp dan email setelah data diterima.</p>
-                    </div>
-                </div>
-                
                 <div class="data-preview" id="dataPreview">
                     <h4><i class="fas fa-eye"></i> Pratinjau Data yang Akan Dikirim</h4>
                     <div class="preview-content" id="previewContent">
@@ -784,9 +845,15 @@
                     <i class="fas fa-eye"></i> Pratinjau Data
                 </button>
                 
-                <button type="submit" class="btn-submit">
-                    <i class="fas fa-paper-plane"></i> Kirim Pendaftaran ke Admin
-                </button>
+                <div class="google-form-info">
+                    <h4><i class="fab fa-google"></i> Pengiriman Data ke Google Form</h4>
+                    <p>Data yang telah Anda isi akan dikirim melalui Google Form ke admin. Pastikan data sudah benar sebelum dikirim.</p>
+                    <p>Setelah mengklik tombol di bawah, Anda akan diarahkan ke Google Form untuk konfirmasi akhir.</p>
+                    
+                    <button type="submit" class="btn-google-form">
+                        <i class="fab fa-google"></i> Lanjutkan ke Google Form
+                    </button>
+                </div>
             </form>
         </section>
     </div>
@@ -796,93 +863,83 @@
             <div style="font-size: 4rem; color: #2ecc71; margin-bottom: 20px;">
                 <i class="fas fa-check-circle"></i>
             </div>
-            <h3>Pendaftaran Berhasil!</h3>
-            <p>Data calon ketua/wakil organisasi telah berhasil dikirim ke admin.</p>
-            <p>Admin akan menghubungi Anda untuk verifikasi dalam 1-2 hari kerja.</p>
+            <h3>Data Siap Dikirim!</h3>
+            <p>Data calon ketua/wakil organisasi telah berhasil diverifikasi.</p>
+            <p>Klik tombol di bawah untuk melanjutkan ke Google Form dan mengirim data ke admin.</p>
             
             <div style="margin-top: 25px; padding: 15px; background-color: #f8f9fa; border-radius: 8px;">
                 <p><strong>Langkah Selanjutnya:</strong></p>
                 <ol style="text-align: left; margin-left: 20px; margin-top: 10px;">
+                    <li>Anda akan diarahkan ke Google Form</li>
+                    <li>Isi ulang data yang sama di Google Form</li>
+                    <li>Submit form untuk mengirim data ke admin</li>
                     <li>Tunggu konfirmasi dari admin via WhatsApp/Email</li>
-                    <li>Persiapkan dokumen pendukung jika diperlukan</li>
-                    <li>Ikuti proses seleksi berikutnya</li>
                 </ol>
             </div>
             
             <div class="modal-buttons">
-                <button class="btn btn-primary" id="closeModalBtn">
-                    <i class="fas fa-check"></i> Mengerti
+                <button class="btn btn-secondary" id="editDataBtn">
+                    <i class="fas fa-edit"></i> Edit Data
                 </button>
-                <button class="btn btn-secondary" id="newFormBtn">
-                    <i class="fas fa-plus"></i> Daftarkan Calon Lain
-                </button>
-            </div>
-        </div>
-    </div>
-    
-    <div class="modal" id="sendModal">
-        <div class="modal-content">
-            <h3>Kirim Data ke Admin</h3>
-            <p>Pilih metode pengiriman data yang Anda inginkan:</p>
-            
-            <div style="margin: 25px 0;">
-                <a href="#" class="whatsapp-link" id="whatsappSendBtn">
-                    <i class="fab fa-whatsapp"></i> Kirim via WhatsApp
+                <a href="#" class="btn btn-primary" id="goToGoogleFormBtn" target="_blank">
+                    <i class="fab fa-google"></i> Lanjutkan ke Google Form
                 </a>
-                <a href="#" class="email-link" id="emailSendBtn">
-                    <i class="fas fa-envelope"></i> Kirim via Email
-                </a>
-            </div>
-            
-            <p style="font-size: 0.9rem; color: #777; margin-top: 20px;">
-                <i class="fas fa-info-circle"></i> Data akan dikirim ke admin untuk diverifikasi.
-            </p>
-            
-            <div class="modal-buttons">
-                <button class="btn btn-secondary" id="cancelSendBtn">
-                    <i class="fas fa-times"></i> Batal
-                </button>
             </div>
         </div>
     </div>
     
     <footer>
-        <p>© 2023 Panitia Pemilihan Ketua Organisasi Intra Madrasah. Semua hak dilindungi.</p>
+        <p>© 2026 Panitia Pemilihan Ketua Organisasi Intra Madrasah. Semua hak dilindungi.</p>
         <div class="footer-links">
-            <a href="#"><i class="fas fa-info-circle"></i> Tentang</a>
-            <a href="#"><i class="fas fa-envelope"></i> Kontak Admin</a>
-            <a href="#"><i class="fas fa-file-alt"></i> Panduan Pendaftaran</a>
+            <a href="#"><i class="fas fa-info-circle"></i> Tentang Pemilihan</a>
+            <a href="#"><i class="fas fa-question-circle"></i> Bantuan</a>
+            <a href="#"><i class="fas fa-calendar-alt"></i> Timeline Pemilihan</a>
         </div>
-        <p style="margin-top: 20px; font-size: 0.9rem;">Madrasah Aliyah Negeri 2 Jakarta</p>
+        <p style="margin-top: 20px; font-size: 0.9rem;">Madrasah Aliyah Negeri - Program Merdeka Belajar</p>
     </footer>
     
     <script>
         // Data organisasi
         const orgData = {
+            osis: {
+                name: 'OSIS (Organisasi Siswa Intra Sekolah)',
+                desc: 'Organisasi siswa resmi di sekolah',
+                color: '#3498db',
+                googleFormId: '1FAIpQLSf...' // ID Google Form untuk OSIS
+            },
             pmr: {
                 name: 'PMR (Palang Merah Remaja)',
                 desc: 'Organisasi yang bergerak di bidang kesehatan dan kemanusiaan',
-                color: '#e74c3c'
+                color: '#e74c3c',
+                googleFormId: '1FAIpQLSf...' // ID Google Form untuk PMR
             },
             gls: {
                 name: 'GLS (Gerakan Literasi Sekolah)',
                 desc: 'Organisasi yang mempromosikan budaya membaca dan menulis',
-                color: '#2ecc71'
+                color: '#2ecc71',
+                googleFormId: '1FAIpQLSf...' // ID Google Form untuk GLS
             },
             lds: {
                 name: 'LDS (Lembaga Dakwah Sekolah)',
                 desc: 'Organisasi yang mengembangkan kegiatan keagamaan Islam',
-                color: '#9b59b6'
+                color: '#9b59b6',
+                googleFormId: '1FAIpQLSf...' // ID Google Form untuk LDS
             },
             sispala: {
                 name: 'SISPALA (Siswa Pecinta Alam)',
                 desc: 'Organisasi yang peduli terhadap lingkungan dan petualangan alam',
-                color: '#e67e22'
+                color: '#e67e22',
+                googleFormId: '1FAIpQLSf...' // ID Google Form untuk SISPALA
             }
         };
         
         // Variabel untuk menyimpan organisasi yang dipilih
         let selectedOrg = null;
+        
+        // URL Google Form - GANTI DENGAN URL GOOGLE FORM ANDA SENDIRI
+        // Cara membuat Google Form: https://docs.google.com/forms/
+        // Setelah membuat form, dapatkan URL form dan ganti variabel di bawah
+        const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSfYOUR_FORM_ID_HERE/viewform?usp=pp_url";
         
         // Fungsi untuk memilih organisasi
         document.querySelectorAll('.org-card').forEach(card => {
@@ -905,8 +962,24 @@
                     <span>Anda memilih: <strong>${orgInfo.name}</strong> - ${orgInfo.desc}</span>
                 `;
                 document.getElementById('selectedOrgDisplay').style.borderLeftColor = orgInfo.color;
+                
+                // Update step indicator
+                updateStepIndicator(2);
             });
         });
+        
+        // Fungsi untuk update step indicator
+        function updateStepIndicator(stepNumber) {
+            // Reset semua steps
+            document.querySelectorAll('.step').forEach(step => {
+                step.classList.remove('active');
+            });
+            
+            // Aktifkan steps sesuai nomor
+            for (let i = 1; i <= stepNumber; i++) {
+                document.getElementById(`step${i}`).classList.add('active');
+            }
+        }
         
         // Fungsi untuk pratinjau foto
         document.getElementById('photo').addEventListener('change', function(event) {
@@ -918,6 +991,14 @@
                 // Validasi ukuran file (maks 2MB)
                 if (file.size > 2 * 1024 * 1024) {
                     alert('Ukuran file terlalu besar! Maksimal 2MB.');
+                    this.value = '';
+                    return;
+                }
+                
+                // Validasi tipe file
+                const validTypes = ['image/jpeg', 'image/jpg', 'image/png'];
+                if (!validTypes.includes(file.type)) {
+                    alert('Format file tidak didukung! Hanya JPG, JPEG, dan PNG yang diperbolehkan.');
                     this.value = '';
                     return;
                 }
@@ -939,23 +1020,6 @@
                 previewContainer.querySelector('span').style.display = 'block';
             }
         });
-        
-        // Tangani perubahan metode pengiriman
-        document.querySelectorAll('input[name="sendMethod"]').forEach(radio => {
-            radio.addEventListener('change', function() {
-                // Sembunyikan semua detail metode
-                document.querySelectorAll('.method-details').forEach(detail => {
-                    detail.classList.remove('active');
-                });
-                
-                // Tampilkan detail metode yang dipilih
-                const method = this.value;
-                document.getElementById(method + 'Details').classList.add('active');
-            });
-        });
-        
-        // Set default method details
-        document.getElementById('whatsappDetails').classList.add('active');
         
         // Set tanggal minimum dan maksimum untuk input tanggal lahir
         const today = new Date();
@@ -996,7 +1060,7 @@
             }
             
             // Validasi form
-            const requiredFields = ['fullName', 'nickName', 'nisn', 'birthPlace', 'birthDate', 'class', 'phone', 'address', 'experience', 'motto', 'reason'];
+            const requiredFields = ['fullName', 'nickName', 'nisn', 'birthPlace', 'birthDate', 'class', 'phone', 'address', 'instagram', 'tiktok', 'experience', 'motto', 'reason'];
             let isValid = true;
             let firstInvalidField = null;
             
@@ -1041,7 +1105,6 @@
         // Fungsi untuk mendapatkan data form
         function getFormData() {
             const position = document.querySelector('input[name="position"]:checked').value;
-            const sendMethod = document.querySelector('input[name="sendMethod"]:checked').value;
             const photoFile = document.getElementById('photo').files[0];
             
             // Format tanggal lahir
@@ -1063,13 +1126,11 @@
                 address: document.getElementById('address').value,
                 phone: document.getElementById('phone').value,
                 instagram: document.getElementById('instagram').value,
-                twitter: document.getElementById('twitter').value,
                 tiktok: document.getElementById('tiktok').value,
                 experience: document.getElementById('experience').value,
                 motto: document.getElementById('motto').value,
                 position: position === 'ketua' ? 'Ketua Organisasi' : 'Wakil Ketua Organisasi',
                 reason: document.getElementById('reason').value,
-                sendMethod: sendMethod,
                 photo: photoFile ? photoFile.name : 'Tidak ada foto'
             };
         }
@@ -1091,9 +1152,8 @@ DATA PRIBADI:
 - No. HP/WhatsApp: ${data.phone}
 
 MEDIA SOSIAL:
-- Instagram: ${data.instagram || '-'}
-- Twitter: ${data.twitter || '-'}
-- TikTok: ${data.tiktok || '-'}
+- Instagram: ${data.instagram}
+- TikTok: ${data.tiktok}
 
 PENGALAMAN ORGANISASI:
 ${data.experience}
@@ -1104,79 +1164,23 @@ ALASAN MENCALONKAN DIRI:
 ${data.reason}
 
 FOTO: ${data.photo}
-METODE PENGIRIMAN: ${data.sendMethod.toUpperCase()}
 
 ========================================
-Data ini akan dikirim ke admin untuk verifikasi.`;
+Data ini akan dikirim ke Google Form untuk verifikasi admin.`;
         }
         
-        // Fungsi untuk format data WhatsApp
-        function formatDataForWhatsApp(data) {
-            return `*PENDAFTARAN CALON KETUA/WAKIL ORGANISASI*
-
-*Organisasi:* ${data.organization}
-*Posisi:* ${data.position}
-
-*Data Pribadi:*
-Nama Lengkap: ${data.fullName}
-Nama Panggilan: ${data.nickName}
-NISN: ${data.nisn}
-TTL: ${data.birthPlace}, ${data.birthDate}
-Kelas: ${data.class}
-Alamat: ${data.address}
-No. HP: ${data.phone}
-
-*Media Sosial:*
-Instagram: ${data.instagram || '-'}
-Twitter: ${data.twitter || '-'}
-TikTok: ${data.tiktok || '-'}
-
-*Pengalaman Organisasi:*
-${data.experience}
-
-*Motto:* "${data.motto}"
-
-*Alasan Mencalonkan Diri:*
-${data.reason}
-
-*Foto:* ${data.photo}
-
-_Data ini dikirim melalui website pendaftaran._`;
-        }
-        
-        // Fungsi untuk format data Email
-        function formatDataForEmail(data) {
-            return `PENDAFTARAN CALON KETUA/WAKIL ORGANISASI
-
-Organisasi: ${data.organization}
-Posisi: ${data.position}
-
-DATA PRIBADI:
-Nama Lengkap: ${data.fullName}
-Nama Panggilan: ${data.nickName}
-NISN: ${data.nisn}
-TTL: ${data.birthPlace}, ${data.birthDate}
-Kelas: ${data.class}
-Alamat: ${data.address}
-No. HP: ${data.phone}
-
-MEDIA SOSIAL:
-Instagram: ${data.instagram || '-'}
-Twitter: ${data.twitter || '-'}
-TikTok: ${data.tiktok || '-'}
-
-PENGALAMAN ORGANISASI:
-${data.experience}
-
-MOTTO: "${data.motto}"
-
-ALASAN MENCALONKAN DIRI:
-${data.reason}
-
-FOTO: ${data.photo}
-
----
-Data ini dikirim melalui website pendaftaran.`;
+        // Fungsi untuk generate URL Google Form dengan data pre-filled
+        function generateGoogleFormUrl(formData) {
+            // Base URL Google Form (GANTI DENGAN URL ANDA SENDIRI)
+            let baseUrl = GOOGLE_FORM_URL;
+            
+            // Jika ingin pre-fill data di Google Form, tambahkan parameter URL
+            // Contoh: &entry.1234567890=value
+            // Anda perlu menyesuaikan entry ID sesuai dengan Google Form Anda
+            
+            // Untuk saat ini, kita hanya mengarahkan ke Google Form kosong
+            // Karena pre-fill membutuhkan konfigurasi khusus di Google Form
+            return baseUrl;
         }
         
         // Tangani pengiriman form
@@ -1186,53 +1190,35 @@ Data ini dikirim melalui website pendaftaran.`;
             // Validasi form
             if (!validateForm()) return;
             
-            // Tampilkan modal pengiriman
-            document.getElementById('sendModal').style.display = 'flex';
+            // Update step indicator
+            updateStepIndicator(3);
             
-            // Setel tautan WhatsApp
+            // Tampilkan modal sukses
             const formData = getFormData();
-            const whatsappText = encodeURIComponent(formatDataForWhatsApp(formData));
-            const adminWhatsApp = '+6281234567890'; // Ganti dengan nomor admin sebenarnya
-            document.getElementById('whatsappSendBtn').href = `https://wa.me/${adminWhatsApp}?text=${whatsappText}`;
             
-            // Setel tautan Email
-            const emailSubject = encodeURIComponent(`Pendaftaran Calon ${formData.position} ${formData.organization}`);
-            const emailBody = encodeURIComponent(formatDataForEmail(formData));
-            const adminEmail = 'admin.pemilihan@madrasah.sch.id'; // Ganti dengan email admin sebenarnya
-            document.getElementById('emailSendBtn').href = `mailto:${adminEmail}?subject=${emailSubject}&body=${emailBody}`;
-        });
-        
-        // Tangani tombol di modal pengiriman
-        document.getElementById('cancelSendBtn').addEventListener('click', function() {
-            document.getElementById('sendModal').style.display = 'none';
-        });
-        
-        document.getElementById('whatsappSendBtn').addEventListener('click', function(e) {
-            // Simulasi pengiriman berhasil
-            setTimeout(function() {
-                document.getElementById('sendModal').style.display = 'none';
-                document.getElementById('successModal').style.display = 'flex';
-            }, 500);
-        });
-        
-        document.getElementById('emailSendBtn').addEventListener('click', function(e) {
-            // Simulasi pengiriman berhasil
-            setTimeout(function() {
-                document.getElementById('sendModal').style.display = 'none';
-                document.getElementById('successModal').style.display = 'flex';
-            }, 500);
+            // Generate URL Google Form
+            const googleFormUrl = generateGoogleFormUrl(formData);
+            
+            // Setel tautan Google Form di modal
+            document.getElementById('goToGoogleFormBtn').href = googleFormUrl;
+            
+            // Tampilkan modal
+            document.getElementById('successModal').style.display = 'flex';
         });
         
         // Tangani tombol di modal sukses
-        document.getElementById('closeModalBtn').addEventListener('click', function() {
+        document.getElementById('editDataBtn').addEventListener('click', function() {
             document.getElementById('successModal').style.display = 'none';
-            resetForm();
+            updateStepIndicator(2);
         });
         
-        document.getElementById('newFormBtn').addEventListener('click', function() {
-            document.getElementById('successModal').style.display = 'none';
-            resetForm();
-            document.getElementById('candidateForm').scrollIntoView({ behavior: 'smooth' });
+        // Reset form setelah pengiriman
+        document.getElementById('goToGoogleFormBtn').addEventListener('click', function() {
+            // Tunggu sebentar sebelum reset form
+            setTimeout(function() {
+                resetForm();
+                document.getElementById('successModal').style.display = 'none';
+            }, 1000);
         });
         
         // Fungsi reset form
@@ -1258,12 +1244,27 @@ Data ini dikirim melalui website pendaftaran.`;
             // Sembunyikan pratinjau data
             document.getElementById('dataPreview').style.display = 'none';
             
+            // Reset step indicator
+            updateStepIndicator(1);
+            
             // Reset tanggal lahir ke default
             const today = new Date();
             const defaultDate = new Date();
             defaultDate.setFullYear(today.getFullYear() - 17);
             document.getElementById('birthDate').value = defaultDate.toISOString().split('T')[0];
         }
+        
+        // Inisialisasi step indicator
+        updateStepIndicator(1);
+        
+        // Tambahkan placeholder untuk nomor HP dengan format Indonesia
+        document.getElementById('phone').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.startsWith('0')) {
+                value = '62' + value.substring(1);
+            }
+            e.target.value = value;
+        });
     </script>
 </body>
 </html>
